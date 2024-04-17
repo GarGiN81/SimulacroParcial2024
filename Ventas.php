@@ -63,8 +63,17 @@ class Ventas{
         $cadena="Numero: ".$this->getNumero()."\n
                 Fecha: ".$this->getFecha()."\n
                 Cliente: ".$this->getObjCliente()."\n
-                Moto: ".$this->getObjColMoto()."\n
+                Motos: ".$this->colMotosAString()."\n
                 Precio Final: ".$this->getPrecioFinal()."\n";
+        return $cadena;
+    }
+    //Función que muestra la colección de motos en formato String
+    public function colMotosAString(){
+        $cadena="";
+        $motos=$this->getObjColMoto();
+        for ($i=0;$i<count($motos);$i++){
+            $cadena=$cadena."Moto N° [". $i. "]:\n".$motos[$i]."\n---\n";
+        }
         return $cadena;
     }
 
@@ -82,8 +91,18 @@ public function incorporarMoto($objMoto){
         array_push($colMotos,$objMoto);
         $this->setPrecioFinal($precioF + $precioM);
     }
-    
 
+}
+//ejemplo función incorporarMoto corregida en clase
+public function incorporarMoto2($objMoto){
+    if($objMoto->getActiva()){
+        $colMotoCopia=$this->getObjColMoto();
+        array_push($colMotoCopia,$objMoto);
+        $precioMoto=$objMoto->darPrecioVenta();
+        $precioFinalCopia=$this->getPrecioFinal();
+        $precioFinalCopia=$precioFinalCopia+$precioMoto;
+        $this->setPrecioFinal($precioFinalCopia);
+    }
 }
 
 
