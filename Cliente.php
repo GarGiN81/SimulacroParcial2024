@@ -2,13 +2,13 @@
 class Cliente{
     private $nombre;
     private $apellido;
-    private $esBaja;
+    private $esActiva;
     private $numDoc;
 
-    public function __construct($cNombre,$cApellido,$cBaja,$cDni) {
+    public function __construct($cNombre,$cApellido,$cActiva,$cDni) {
         $this->nombre = $cNombre;
         $this->apellido=$cApellido;
-        $this->esBaja=$cBaja;
+        $this-$esActiva=$cActiva;
         $this->numDoc=$cDni;
     }
 
@@ -26,12 +26,12 @@ class Cliente{
         $this->apellido = $apellido;
     }
 
-    public function getEsBaja(){
-        return $this->esBaja;
+    public function getEsActiva(){
+        return $this-$esActiva;
     }
 
-    public function setEsBaja($esBaja){
-        $this->esBaja = $esBaja;
+    public function setEsActiva($esActiva){
+        $this-$esActiva = $esActiva;
     }
     
     public function getNumDoc(){
@@ -44,7 +44,7 @@ class Cliente{
         $cadena="";
         $cadena="Nombre: ".$this->getNombre()."\n
                 Apellido: ".$this->getApellido()."\n
-                Estado: ".$this->getEsBaja()."\n
+                Estado: ".$this->getEsActiva()."\n
                 DNI: ".$this->getNumDoc()."\n";
         return $cadena;
     }

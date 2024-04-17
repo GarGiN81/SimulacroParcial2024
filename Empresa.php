@@ -98,18 +98,22 @@ class Empresa{
     public function registrarVenta($colCodigosMoto,$objCliente){
         $venta=0;
         $listaVentas=$this->getColVentas();
-        $vNum=count($this->getColVentas());
+        $vNum=count($listaVentas);
         $vFecha=date("d","m","y");
         for($i=0;$i<count($colCodigosMoto);$i++){
             $unCodigo=$colCodigosMoto[$i];
             $unaMoto=$this->retornarMoto($unCodigo);
             $precio=$unaMoto->darPrecioVenta();
             $arrayMoto[]=$unaMoto;
-            if($unaMoto != null && $objCliente->getEsBaja()==true && $precio>0){
+            if($unaMoto != null && $objCliente->getEsActiva()==true && $precio>0){
                 $venta=$venta+$precio;
             }
         }
-        $unaVenta= new Ventas($vNum,$vFecha,$objCliente,$arrayMoto,$precio);
+        $unaVenta= new Ventas($vNum,$vFecha,$objCliente,$arrayMoto,$venta);
+        $arrayVentas=array_push($listaVentas,$unaVenta);
+        $this->setColVentas($arrayVentas);
+        return $venta;
+
     }
 
 
