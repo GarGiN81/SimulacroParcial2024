@@ -16,4 +16,34 @@ $objMoto3=newMoto(13,999900,2023,"Zanella Patagonian Eagle 250",55,false);
  * colección de clientes =[$objCliente1, $objCliente2 ],
  * la colección de ventas realizadas=[]. */
 $objEmpresa=new Empresa("Alta Gama","Avenida Argentina 123",[$objCliente1, $objCliente2],[$objMoto1, $objMoto2, $objMoto3],[]);
+
+/**5. Invocar al método registrarVenta($colCodigosMoto, $objCliente) de la Clase Empresa donde el
+$objCliente es una referencia a la clase Cliente almacenada en la variable $objCliente2 (creada en el
+punto 1) y la colección de códigos de motos es la siguiente [11,12,13]. Visualizar el resultado obtenido.
+ */
+$venta=$objEmpresa->registrarVenta([11,12,13], $objCliente2);
+echo $venta;
+
+/**6. Invocar al método registrarVenta($colCodigosMotos, $objCliente) de la Clase Empresa donde el
+$objCliente es una referencia a la clase Cliente almacenada en la variable $objCliente2 (creada en el
+punto 1) y la colección de códigos de motos es la siguiente [0]. Visualizar el resultado obtenido. */
+$venta2=$objEmpresa->registrarVenta([0], $objCliente2);
+echo $venta2;
+/**7. Invocar al método registrarVenta($colCodigosMotos, $objCliente) de la Clase Empresa donde el
+$objCliente es una referencia a la clase Cliente almacenada en la variable $objCliente2 (creada en el
+punto 1) y la colección de códigos de motos es la siguiente [2]. Visualizar el resultado obtenido.
+ */
+$venta3=$objEmpresa->registrarVenta([2], $objCliente2);
+echo $venta3;
+
+/**8. Invocar al método retornarVentasXCliente($tipo,$numDoc) donde el tipo y número de documento se
+corresponden con el tipo y número de documento del $objCliente1.
+ */
+
+/**9. Invocar al método retornarVentasXCliente($tipo,$numDoc) donde el tipo y número de documento se
+corresponden con el tipo y número de documento del $objCliente2 */
+
+/**10. Realizar un echo de la variable Empresa creada en 2. */
+
+
 ?>
