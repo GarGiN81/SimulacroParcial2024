@@ -80,9 +80,9 @@ class Empresa{
             $ubicacion=$colM[$i];
             if($ubicacion->getCodigo()==$codigoMoto){
                 $objMoto=$ubicacion;
-            }else{
-                $i++;
             }
+            $i++;
+            
         }
         return $objMoto;
     }
@@ -114,6 +114,13 @@ class Empresa{
         $this->setColVentas($arrayVentas);
         return $venta;
 
+    }
+
+    /**Implementar el método retornarVentasXCliente($tipo,$numDoc) que recibe por parámetro el tipo y
+número de documento de un Cliente y retorna una colección con las ventas realizadas al cliente. */
+    public function retornarVentasXXliente($tipo,$numDoc){
+
+        
     }
 
 
